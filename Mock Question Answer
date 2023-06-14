@@ -1,0 +1,35 @@
+Q1.
+def moveZeroes(nums):
+    left = 0
+    right = 0
+    n = len(nums)
+
+    while right < n:
+        if nums[right] != 0:
+            nums[left], nums[right] = nums[right], nums[left]
+            left += 1
+        right += 1
+
+    return nums
+nums = [0, 1, 0, 3, 12]
+result = moveZeroes(nums)
+print(result)
+
+Q.2.
+def firstUniqChar(s):
+    char_count = {}
+
+    # Update the count of each character in the hashmap
+    for char in s:
+        char_count[char] = char_count.get(char, 0) + 1
+
+    # Check the count of each character in the hashmap
+    for i, char in enumerate(s):
+        if char_count[char] == 1:
+            return i
+
+    return -1
+s = "leetcode"
+result = firstUniqChar(s)
+print(result)
+
